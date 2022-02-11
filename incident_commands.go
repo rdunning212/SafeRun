@@ -12,16 +12,16 @@ func GetIncidents(w http.ResponseWriter, r *http.Request) {
 
 	printMessage("Getting incidents...")
 
-	// Get all movies from movies table that don't have movieID = "1"
+	// Get all incidents
 	rows, err := db.Query("SELECT * FROM incidents")
 
 	// check errors
 	checkErr(err)
 
-	// var response []JsonResponse
+	// var response []IncidentResponse
 	var incidents []Incident
 
-	// Foreach movie
+	// Foreach incident
 	for rows.Next() {
 		var id int
 		var reporterID int
@@ -61,7 +61,7 @@ func GetIncident(w http.ResponseWriter, r *http.Request) {
 
 	printMessage("Getting incident...")
 
-	// Get all movies from movies table that don't have movieID = "1"
+	// Get incident by ID
 	rows, err := db.Query("SELECT * FROM incidents WHERE id IS" + string(targetID))
 
 	// check errors
@@ -70,7 +70,6 @@ func GetIncident(w http.ResponseWriter, r *http.Request) {
 	// var response []JsonResponse
 	var incidents []Incident
 
-	// Foreach movie
 	for rows.Next() {
 		var id int
 		var reporterID int
@@ -120,13 +119,11 @@ func GetIncidentsByUser(w http.ResponseWriter, r *http.Request) {
 
 	printMessage("Getting incident...")
 
-	// Get all movies from movies table that don't have movieID = "1"
 	rows, err := db.Query("SELECT * FROM incidents WHERE reporterID IS" + string(reporterID))
 
 	// check errors
 	checkErr(err)
 
-	// var response []JsonResponse
 	var incidents []Incident
 
 	// Foreach movie

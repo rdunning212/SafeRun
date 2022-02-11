@@ -12,16 +12,13 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 	printMessage("Getting users...")
 
-	// Get all movies from movies table that don't have movieID = "1"
 	rows, err := db.Query("SELECT * FROM users")
 
 	// check errors
 	checkErr(err)
 
-	// var response []JsonResponse
 	var users []User
 
-	// Foreach movie
 	for rows.Next() {
 		var id int
 		var firstName string
@@ -50,16 +47,13 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 
 	printMessage("Getting user...")
 
-	// Get all movies from movies table that don't have movieID = "1"
 	rows, err := db.Query("SELECT * FROM users WHERE id IS $1", targetID)
 
 	// check errors
 	checkErr(err)
 
-	// var response []JsonResponse
 	var users []User
 
-	// Foreach movie
 	for rows.Next() {
 		var id int
 		var firstName string
@@ -88,16 +82,13 @@ func GetTeamsByUser(w http.ResponseWriter, r *http.Request) {
 
 	printMessage("Getting user...")
 
-	// Get all movies from movies table that don't have movieID = "1"
 	rows, err := db.Query("SELECT * FROM userteam WHERE userID IS $1", targetID)
 
 	// check errors
 	checkErr(err)
 
-	// var response []JsonResponse
 	var teams []Team
 
-	// Foreach movie
 	for rows.Next() {
 		var userID int
 		var teamID int

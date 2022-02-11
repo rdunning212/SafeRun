@@ -88,16 +88,13 @@ func GetUsersByTeam(w http.ResponseWriter, r *http.Request) {
 
 	printMessage("Getting user...")
 
-	// Get all movies from movies table that don't have movieID = "1"
 	rows, err := db.Query("SELECT * FROM userteam WHERE teamID IS $1", targetID)
 
 	// check errors
 	checkErr(err)
 
-	// var response []JsonResponse
 	var users []User
 
-	// Foreach movie
 	for rows.Next() {
 		var userID int
 		var teamID int
