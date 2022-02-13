@@ -2,13 +2,17 @@ package main
 
 import (
 	"fmt"
+	"github.com/gomodule/redigo/redis"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
 	"log"
 	"net/http"
 )
 
+var cache redis.Conn
+
 func main() {
+	initCache()
 	router := mux.NewRouter()
 
 	// Route handles & endpoints

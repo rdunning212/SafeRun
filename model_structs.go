@@ -29,3 +29,8 @@ type Incident struct {
 	IncidentType string  `json:"incident_type"`
 	Description  string  `json:"description"`
 }
+
+type Auth struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}

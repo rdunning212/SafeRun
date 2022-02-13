@@ -41,6 +41,8 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 func GetUser(w http.ResponseWriter, r *http.Request) {
 	db := setupDB()
 
+	checkAuth(w, r)
+
 	params := mux.Vars(r)
 
 	targetID := params["userid"]

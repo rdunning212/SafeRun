@@ -6,3 +6,5 @@ TO DO:
 - Create team run schedules
 - Any sort of UI
 - Add ability to track along route
+- Update database to reflect authentication updates
+- Add Authentication for every request
