@@ -8,3 +8,4 @@ TO DO:
 - Add ability to track along route
 - Update database to reflect authentication updates
 - Add Authentication for every request
+- Update api to use body instead of params (cleaner)
